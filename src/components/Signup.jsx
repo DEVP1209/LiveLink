@@ -1,15 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { UserAuth } from "../contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+  const { signup,currentUser } = UserAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,12 +23,19 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+      navigate("/dashboard");
     } catch (e) {
       setError(`Error: ${e.message}. Failed to create an account`);
     }
 
     setLoading(false);
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/dashboard");
+    }
+  });
 
   return (
     <>
@@ -55,7 +63,7 @@ export default function Signup() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login"> Log In </Link>
+        Already have an account? <Link to="/"> Log In </Link>
       </div>
     </>
   );
