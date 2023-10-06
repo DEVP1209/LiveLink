@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ResetPassword from "./ResetPassword";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Login />} />
+              <Route path="/forgot-password" element={<ResetPassword />} />
               <Route path="/signup" element={<Signup />} />
               <Route
                 path="/dashboard"
