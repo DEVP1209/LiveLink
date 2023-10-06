@@ -53,7 +53,7 @@ export default function ResetPassword() {
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
-             <Link to="/login">Back to Log In</Link>
+             <Link to="/">Back to Log In</Link>
           </div>
         </>
       )
