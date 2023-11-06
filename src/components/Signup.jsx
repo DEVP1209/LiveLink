@@ -4,6 +4,7 @@ import { UserAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
+  const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -22,7 +23,7 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await signup(usernameRef.current.value,emailRef.current.value, passwordRef.current.value);
       navigate("/dashboard");
     } catch (e) {
       setError(`Error: ${e.message}. Failed to create an account`);
@@ -44,6 +45,10 @@ export default function Signup() {
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+          <Form.Group id="">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" ref={usernameRef} required />
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />

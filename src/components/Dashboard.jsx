@@ -19,7 +19,7 @@ export default function Dashboard() {
   return (
     <>
       <h1>Dashboard</h1>
-      <h3>Email: {currentUser&&currentUser.email}</h3>
+      <h3>Email: {currentUser&&currentUser.displayName}</h3>
       <Button className="w-100" type="submit" onClick={handleLogOut}>
         Log out
       </Button>
