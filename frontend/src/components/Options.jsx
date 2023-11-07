@@ -6,7 +6,7 @@ import {
     PhoneDisabled,
   } from "@mui/icons-material";
 
-import { SocketContext } from '../Context';
+import { SocketContext } from '../contexts/Context';
 
 
 

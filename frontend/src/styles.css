@@ -18,11 +18,20 @@ body{
 
 .header-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #1e2124;
     height: 8vh;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    align-items: center;
+}
+
+.username-text{
+    color: #7289da;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.5rem;
 }
 
 .header-text{
@@ -30,6 +39,17 @@ body{
     font-size: 3em;
     color: #7289da;
     font-family: 'Nunito Sans', sans-serif;
+}
+
+.logout-btn{
+    height: 30px;
+    padding: 0.3rem;
+    font-family: 'Nunito Sans', sans-serif;
+    border: none;
+    font-size: 1rem;
+    background-color: #7289da;
+    color: white;
+    border-radius: .4rem;
 }
 
 .video-main-container{
